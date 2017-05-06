@@ -6,7 +6,7 @@ import java.util.Queue;
 public class BFS {
     private static HashSet<Vertex> visited = new HashSet<>();
 
-    private static void BreadthFirstSearch(Graph G){
+    public static void BreadthFirstSearch(Graph G){
         HashMap<String, Vertex> adjacencyList = G.getAdjacencyList();
         for (HashMap.Entry<String, Vertex> vertex : adjacencyList.entrySet()){
             if (!visited.contains(vertex.getValue())){
@@ -31,20 +31,5 @@ public class BFS {
                 }
             }
         }
-    }
-
-    public static void main(String[] args){
-        Graph graph = new Graph();
-
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
-        graph.addVertex("D");
-
-        graph.addEdge("A", "B");
-        graph.addEdge("A", "C");
-        graph.addEdge("B", "D");
-
-        BreadthFirstSearch(graph);
     }
 }
