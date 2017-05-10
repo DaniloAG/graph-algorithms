@@ -11,14 +11,14 @@ public class Edge{
         this.v = v;
     }
 
-    public Edge(boolean directed, Vertex u, Vertex v){
+    public Edge(Vertex u, Vertex v, boolean directed){
         weight = 0;
         this.directed = directed;
         this.u = u;
         this.v = v;
     }
 
-    public Edge(boolean directed, Vertex u, Vertex v, int weight){
+    public Edge(Vertex u, Vertex v, boolean directed, int weight){
         this.directed = directed;
         this.u = u;
         this.v = v;
@@ -35,6 +35,10 @@ public class Edge{
 
     public int getWeight(){
         return weight;
+    }
+
+    public boolean isDirected(){
+        return directed;
     }
 
     @Override

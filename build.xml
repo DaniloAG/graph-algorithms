@@ -16,7 +16,7 @@
                 </javac>
 
         </target>
-        <!--Creates the deployable jar file  -->
+        
         <target name="jar" depends="compile">
                 <jar destfile="jar/graph-algorithms.jar" basedir="${build.dir}">
                         <manifest>
@@ -29,3 +29,5 @@
                 <java jar="jar/graph-algorithms.jar" fork="true"/>
         </target>
 </project>
+
+<!-- ant compile jar run -->
