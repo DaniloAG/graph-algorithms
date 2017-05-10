@@ -79,34 +79,18 @@ public class FloydWarshallAlgorithm{
 
         System.out.println();
 
-        printPath(path, 0, 3);
+        int q = 0;
+        for (HashMap.Entry<String, Vertex> v : adjacencyList.entrySet()){
+        	int sumPaths = 0;
+        	int j = 0;
+        	for (HashMap.Entry<String, Vertex> v_2 : adjacencyList.entrySet()){
+        		sumPaths += dist[q][j];
+        		j++;
+        	}
+        	System.out.println("Closeness Centrality for " + v.getKey() + ": " + ((double)1 / sumPaths));
+        	q++;
+        }
+
 		return dist;
 	}
-
-	// All credit for this method goes to, Tushar Roy.
-	private static void printPath(int[][] path, int start, int end) {
-        if(start < 0 || end < 0 || start >= path.length || end >= path.length) {
-            throw new IllegalArgumentException();
-        }
-
-        System.out.println("Actual path - between " + start + " " + end);
-        Deque<Integer> stack = new LinkedList<>();
-        stack.addFirst(end);
-        while (true) {
-            end = path[start][end];
-            if(end == -1) {
-                return;
-            }
-            stack.addFirst(end);
-            if(end == start) {
-                break;
-            }
-        }
-
-        while (!stack.isEmpty()) {
-            System.out.print(stack.pollFirst() + " ");
-        }
-
-        System.out.println();
-    }
 }
